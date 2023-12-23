@@ -3,18 +3,22 @@ import "../styles/Form.css";
 import { v4 as uuidv4 } from 'uuid';
 
 function Form(props){ 
+
     const [input, setInput] = useState('');
+
     const handleChange = e => {
         setInput(e.target.value);
     }
+
     const handleSend = e => {
         e.preventDefault(); 
 
         console.log("Sending form...");
+        
         const newTask = {
             id: uuidv4(),
             text: input,
-            finishTask: false
+            iscomplete: false
         }
         props.onSubmit(newTask);
     }

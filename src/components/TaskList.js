@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import Form from "./Form";
 import '../styles/TaskList.css';
 import Task from "./Task";
+import Form from "./Form";
 
 function TaskList() {
 
@@ -22,6 +22,16 @@ function TaskList() {
         setTasks(updatedTask);
     }
 
+    const finishTask = id => {
+        const updatedTask = tasks.map(task => {
+            if(task.id === id) {
+                task.iscomplete = !task.iscomplete;
+            }
+            return task;
+        });
+        setTasks(updatedTask);
+    }
+
     return (
         <>
             <Form onSubmit={addTask} />
@@ -32,6 +42,7 @@ function TaskList() {
                             key={task.id}
                             id={task.id}
                             text={task.text}
+                            finishTask={finishTask}
                             iscomplete={task.iscomplete}
                             deleteTask={deleteTask}
                         />

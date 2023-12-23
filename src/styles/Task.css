@@ -39,7 +39,7 @@
     margin: 5px;
 }
 
-.task-div.state {
+.task-div.iscomplete {
     background-color: chocolate;
     text-decoration: line-through;
 }
