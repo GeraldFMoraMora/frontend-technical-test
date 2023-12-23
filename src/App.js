@@ -1,4 +1,4 @@
-import './App.css';
+import './styles/App.css';
 import TaskList from './components/TaskList';
 import appLogo from './images/tasklogo.jpg';
 
