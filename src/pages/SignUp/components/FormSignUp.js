@@ -21,10 +21,10 @@ export function FormSignUp() {
             tel === ""||
             age === "" ||
             gender === ""){
-                setError(true)
+                setError('Any field can\'t be empty')
             return
         }
-        setError(false);
+        setError('');
     }
 
     const handleTelChange = (e) => {
@@ -38,6 +38,33 @@ export function FormSignUp() {
         const formattedPhoneNumber = phoneNumber.replace(/(\d{4})(\d{4})/, '$1-$2');
 
         return formattedPhoneNumber;
+    }
+
+    const handlePassChange = (e) => {
+        const newPass = e.target.value;
+        setPass(newPass);
+
+        if (validatePass(newPass)){
+            setError('');
+        }else{
+            setError('Invalid password format');
+        }
+    }
+
+    const validatePass = (password) => {
+        const hasLetter = /[a-zA-Z]/.test(password);
+        const hasNumber = /\d/.test(password);
+        const hasUpperCase = /[A-Z]/.test(password);
+        const hasSpecialChar = /[!@#$%^&*(),.?":{}|<>]/.test(password);
+        const isLengthValid = password.length >= 8 && password.length <= 12;
+
+        return (
+            hasLetter &&
+            hasNumber &&
+            hasUpperCase &&
+            !hasSpecialChar &&
+            isLengthValid
+        );
     }
 
     return (
@@ -55,7 +82,7 @@ export function FormSignUp() {
                 <input 
                     type="password"
                     value={pass}
-                    onChange={e=> setPass(e.target.value)}
+                    onChange={handlePassChange}
                     placeholder="Enter your password"
                 />
                 <input 
@@ -104,7 +131,7 @@ export function FormSignUp() {
                     Register now
                 </button>
             </form>
-            {error && <p>All fields are requisite</p>}
+            {error && <p className="error-message">{error}</p>}
 
         </div>
     );

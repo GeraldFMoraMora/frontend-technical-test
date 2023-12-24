@@ -1,3 +1,11 @@
+.error-message {
+    color:crimson;
+    padding: 16px;
+    font-size: 18px;
+    font-family: Roboto, sans-serif;
+}
+
 .btn-register {
     text-transform: capitalize;
 }
+
