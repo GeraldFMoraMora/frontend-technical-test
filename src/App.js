@@ -4,6 +4,7 @@ import appLogo from './images/tasklogo.jpg';
 import { FormLogin } from './pages/LogIn/components/FormLogin';
 import { Home } from './pages/Home/components/Home';
 import { useState } from 'react';
+import { FormSignUp } from './pages/SignUp/components/FormSignUp'
 
 
 function App() {
@@ -21,11 +22,15 @@ function App() {
         <h1>My task</h1>
         <TaskList/>
       </div>*/}
-      {
+      {/*
         !userName.length > 0 
         ? <FormLogin setUserName={setUserName}/>
-        : <Home userName={userName}/>
+        : <Home userName={userName}/>*/
       }
+      <div>
+        <FormSignUp/>
+      </div>
+
     </div>
   );
 }
