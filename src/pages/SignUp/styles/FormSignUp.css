@@ -1,11 +1,55 @@
 .error-message {
+    display: flex;
+    flex-direction: column;
     color:crimson;
     padding: 16px;
     font-size: 18px;
     font-family: Roboto, sans-serif;
+    align-items: center;
 }
 
 .btn-register {
     text-transform: capitalize;
 }
 
+h2 {
+    color: #1b1b1b;
+    text-transform: capitalize;
+}
+label {
+    color: #1b1b1b;
+    text-transform: capitalize;
+    margin-left: 1%;
+}
+
+button, .input-data{
+    margin: 1% 15% 1% 15%;
+}
+
+select {
+    margin: 1% 80% 2% 15%;
+}
+
+.formSignUp {
+    margin-top: 40px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: left;
+}
+
+.radio-options-div{
+    display: flex;
+    flex-direction: column;
+    align-items: normal;
+}
+
+.radio-and-label{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+}
+
+.radio {
+    margin-left: 15%;
+}

@@ -1,0 +1,32 @@
+p {
+    color:#1b1b1b;
+    padding: 16px;
+    font-size: 18px;
+    font-family: Roboto, sans-serif;
+    text-transform: capitalize;
+}
+
+h2 {
+    color: #1b1b1b;
+    text-transform: capitalize;
+}
+
+.form-profile-div {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    
+}
+
+.title-div {
+    flex-direction: column;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.info-div {
+    margin-top: 40px;
+    margin-left: 10%;
+}

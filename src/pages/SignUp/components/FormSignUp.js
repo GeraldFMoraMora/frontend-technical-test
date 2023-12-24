@@ -69,23 +69,29 @@ export function FormSignUp() {
 
     return (
         <div className="form-sign-div">
+            <div className="title-div">
+                <h2>SignUp</h2>
+            </div>
             <form 
                 className="formSignUp"
                 onSubmit={handleSubmit}
             >
                 <input 
+                    className="input-data"
                     type="text"
                     value={user}
                     onChange={e => setUser(e.target.value)}
                     placeholder="Enter your username"
                 />
                 <input 
+                    className="input-data"
                     type="password"
                     value={pass}
                     onChange={handlePassChange}
                     placeholder="Enter your password"
                 />
                 <input 
+                    className="input-data"
                     type="text"
                     value={tel}
                     onChange={handleTelChange}
@@ -104,8 +110,9 @@ export function FormSignUp() {
                     <option>65+</option>
                 </select>
                 <div className="radio-options-div">
-                    <div>
+                    <div className="radio-and-label">
                         <input
+                            className="radio"
                             type="radio"
                             name="Gender"
                             value="Women"
@@ -114,8 +121,9 @@ export function FormSignUp() {
                         />
                         <label>Women</label>
                     </div>
-                    <div>
+                    <div className="radio-and-label">
                         <input
+                            className="radio"
                             type="radio"
                             name="Gender"
                             value="Men"
