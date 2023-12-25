@@ -1,11 +1,42 @@
-.formlogin{
-    display:flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-    gap: 1rem;
-}
 h2 {
     color: #1b1b1b;
     text-transform: capitalize;
 }
+
+.login-div {
+    justify-content: center;
+    align-content: center;
+}
+
+.title-div {
+    align-content: center;
+}
+
+.form-login {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin-top: 40px;
+}
+
+.error-message {
+    display: flex;
+    flex-direction: column;
+    color:crimson;
+    padding: 16px;
+    font-size: 18px;
+    font-family: Roboto, sans-serif;
+    align-items: center;
+}
+
+.input-data {
+    margin: 1% 15% 1% 15%;
+}
+
+.btn-login {
+    margin-top: 1% 0 30% 0;
+    color: #1b1b1b;
+}
+
+
+
