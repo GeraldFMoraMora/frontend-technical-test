@@ -1,13 +1,31 @@
 import '../styles/FormProfile.css'
+import { findByName } from '../services/profileService';
+import { useState, useEffect } from 'react';
 
 export function FormProfile() {
-    const userData = {
-        name : "Geraldpark",
-        password : "********",
-        phone : "8888-8888",
-        age : "18-30",
-        gender : "Men",
-    };
+    const [userData, setUserData] = useState({
+        name : "",
+        password : "",
+        phone : "",
+        age : "",
+        gender : "",
+    });
+
+    useEffect( () => {
+        const fetchUserData = async () => {
+            try {
+                const data = await findByName('Misael');
+                setUserData(data);
+            } catch (error){
+                console.error('Error al obtener los datos del usuario: ', error.message);
+            }
+        };
+        fetchUserData();
+        
+    }, []
+
+    );
+
     return (
         <div className='form-profile-div'>
             <div className='title-div'>

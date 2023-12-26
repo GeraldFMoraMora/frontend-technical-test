@@ -1,13 +1,15 @@
 import '../styles/FormLogin.css';
-import { CiUser } from 'react-icons/ci'
 import { useState } from 'react';
+import { login } from '../services/authService';
+import { FormProfile } from '../../Profile/components/FormProfile'
 
-export function FormLogin({ setUserName }) {
+export function FormLogin() {
     const [user, setUser] = useState("");
     const [pass, setPass] = useState("");
     const [error, setError] = useState(false);
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault(); 
 
         if(user === "" || pass === ""){
@@ -16,10 +18,21 @@ export function FormLogin({ setUserName }) {
         }
         setError(false)
 
+        try {
+            await login(user, pass);
+            setIsLoggedIn(true);
 
-    }
+        } catch (error) {
+            console.error('Error de autenticacion: ', error.message);
+            setError(true);
 
+        }
 
+        if (isLoggedIn) {
+            console.log('Vamos a reenderizar')
+            return < FormProfile/>;
+        }
+    };
     return (
         <section>
             <div className='login-div'>
@@ -48,7 +61,7 @@ export function FormLogin({ setUserName }) {
                     <button className='btn-login'>Iniciar Sesion</button>
 
                 </form>
-                {error && <p className='error-message'>All fields are requisite</p>}
+                {error && <p className='error-message'>Authentication failed</p>}
             </div>
             
         </section>

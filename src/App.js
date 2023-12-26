@@ -1,7 +1,7 @@
 import './styles/App.css';
 import TaskList from './pages/Task/components/TaskList';
 import appLogo from './images/tasklogo.jpg';
-import { FormLogin } from './pages/LogIn/components/FormLogin';
+import { FormLogin } from './pages/Auth/components/FormLogin';
 import { Home } from './pages/Home/components/Home';
 import { useState } from 'react';
 import { FormSignUp } from './pages/SignUp/components/FormSignUp'
@@ -9,9 +9,8 @@ import { FormProfile } from './pages/Profile/components/FormProfile';
 
 
 function App() {
-  const [userName, setUserName] = useState([]);
+  const [userName, setUserName] = useState('');
   const [loginFlag, setLoginFlag] = useState(false);
-  const [SignUpFlag, setSignUpFlag] = useState(false);
 
   return (
     <div className="app-task">
@@ -28,14 +27,17 @@ function App() {
         <FormSignUp/>
         <FormLogin setUserName={setUserName}/>
         */}
+        <Home/>
 
-        {!loginFlag && !SignUpFlag && (
+        {/*{!loginFlag && !SignUpFlag && (
           <Home setLoginFlag={setLoginFlag} setSignUpFlag={setSignUpFlag} />
         )}
         {loginFlag === true && SignUpFlag === false && (
-          <FormLogin setUserName={''} />
+          <FormLogin setUserName={setUserName} />
         )}
-        {loginFlag === false && SignUpFlag === true && <FormSignUp />}
+        {loginFlag === false && SignUpFlag === true && <FormSignUp />}*/}
+
+        <p>{userName}</p>
         
         
       </div>
