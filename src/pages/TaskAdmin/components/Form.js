@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "../styles/Form.css";
 
-function Form(props){ 
+function Form( { onAddTask } ){ 
 
     const [input, setInput] = useState('');
 
@@ -11,6 +11,8 @@ function Form(props){
 
     const handleSend = e => {
         e.preventDefault(); 
+
+        onAddTask(input);
         
     }
     return (

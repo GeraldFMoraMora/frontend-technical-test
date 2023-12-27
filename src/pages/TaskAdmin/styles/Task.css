@@ -1,35 +1,24 @@
 .individual-task-div {
     min-height: 15px;
-    background-color: #1b1b32;
+    background-color: #f7f7f7;
     margin: 5px 0;
     padding: 3px 3px 3px 3px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     border-radius: 7px;
-    border: 1px solid white;
     cursor: pointer;
     min-width: 165px;
     width: 172px;
     max-width: 186px;
-}
-
-.task-div:nth-child(3n+1) {
-    background-color: #1b1b32;
-}
-
-.task-div:nth-child(3n+2) {
-    background-color: #2a2a40;
-}
-
-.task-div:nth-child(3n+3) {
-    background-color: #3b3b4f;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .task-text {
+    color: black;
     width: 100%;
     height: 100%;
-    font-size: 20px;
+    font-size: 16px;
     display: flex;
     align-items: center;
     overflow-wrap: anywhere;
@@ -39,4 +28,5 @@
     width: 25px;
     height: 25px;
     margin: 5px;
+    color: firebrick;
 }
