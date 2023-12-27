@@ -36,6 +36,7 @@ function TaskList() {
         <>
             <Form onSubmit={addTask} />
             <div className="list-task-div">
+                <div className="columns-div">
                 {
                     tasks.map((task) => 
                         <Task
@@ -48,6 +49,23 @@ function TaskList() {
                         />
                     )
                 }
+                </div>
+                <div className="columns-div">
+                {
+                    tasks.map((task) => 
+                        <Task
+                            key={task.id}
+                            id={task.id}
+                            text={task.text}
+                            finishTask={finishTask}
+                            iscomplete={task.iscomplete}
+                            deleteTask={deleteTask}
+                        />
+                    )
+                }
+                </div>
+                    
+                
             </div>
 
         </>

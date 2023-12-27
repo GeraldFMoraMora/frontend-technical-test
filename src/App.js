@@ -29,14 +29,6 @@ function App() {
         */}
         <Home/>
 
-        {/*{!loginFlag && !SignUpFlag && (
-          <Home setLoginFlag={setLoginFlag} setSignUpFlag={setSignUpFlag} />
-        )}
-        {loginFlag === true && SignUpFlag === false && (
-          <FormLogin setUserName={setUserName} />
-        )}
-        {loginFlag === false && SignUpFlag === true && <FormSignUp />}*/}
-
         <p>{userName}</p>
         
         

@@ -1,4 +1,4 @@
-.task-div {
+.individual-task-div {
     min-height: 15px;
     background-color: #1b1b32;
     margin: 5px 0;
@@ -9,6 +9,9 @@
     border-radius: 7px;
     border: 1px solid white;
     cursor: pointer;
+    min-width: 165px;
+    width: 172px;
+    max-width: 186px;
 }
 
 .task-div:nth-child(3n+1) {
