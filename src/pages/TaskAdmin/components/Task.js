@@ -1,15 +1,13 @@
 import { AiOutlineCloseCircle } from "react-icons/ai";
 import React from "react";
 import "../styles/Task.css";
+import TaskService from "../services/TaskService";
 
 function Task({ id, text, onDragStart, onDeleteTask }) {
-    const handleDragStart = (e) => {
-        onDragStart(e, text);
-    };
-
-    const handleDelete = () => {
-        onDeleteTask(id);
-    };
+    const {
+        handleDragStart,
+        handleDelete,
+    } = TaskService(id, text, onDragStart, onDeleteTask);
 
     return(
         <div className="individual-task-div" draggable onDragStart={handleDragStart}>

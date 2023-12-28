@@ -4,31 +4,19 @@ import { login } from '../services/authService';
 import { FormProfile } from '../../Profile/components/FormProfile'
 import Form from '../../Task/components/Form';
 import TaskAdmin from '../../TaskAdmin/components/TaskAdmin';
+import { AuthService } from '../services/authService';
 
 export function FormLogin() {
-    const [user, setUser] = useState("");
-    const [pass, setPass] = useState("");
-    const [error, setError] = useState(false);
-    const [isLoggedIn, setIsLoggedIn] = useState(false);
-
-    const handleSubmit = async (e) => {
-        e.preventDefault(); 
-
-        if(user === "" || pass === ""){
-            setError(true)
-            return
-        }
-        setError(false)
-
-        try {
-            await login(user, pass);
-            setIsLoggedIn(true);
-
-        } catch (error) {
-            console.error('Error de autenticacion: ', error.message);
-            setError(true);
-        }
-    };
+    const {
+        user,
+        pass,
+        setUser,
+        setPass,
+        error,
+        isLoggedIn,
+        handleSubmit,
+    } = AuthService();
+    
     return (
         <section>
             <div className='login-div'>

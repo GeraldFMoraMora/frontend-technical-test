@@ -1,20 +1,14 @@
 import React, { useState } from "react";
 import "../styles/Form.css";
+import FormService from "../services/FormService";
 
 function Form( { onAddTask } ){ 
 
-    const [input, setInput] = useState('');
-
-    const handleChange = e => {
-        setInput(e.target.value);
-    }
-
-    const handleSend = e => {
-        e.preventDefault(); 
-
-        onAddTask(input);
-        
-    }
+    const {
+        handleChange,
+        handleSend,
+    } = FormService(onAddTask);
+    
     return (
         <div className="form-input-div">
             <form 

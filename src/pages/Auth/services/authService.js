@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 const API_URL = "http://localhost:8080";
 
 export async function login(name, password) {
@@ -16,5 +18,41 @@ export async function login(name, password) {
     const data = await response.json();
     console.log(data);
     return data;
-}
+};
 
+export const AuthService = () => {
+    const [user, setUser] = useState("");
+    const [pass, setPass] = useState("");
+    const [error, setError] = useState(false);
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+    const handleSubmit = async (e) => {
+        e.preventDefault(); 
+
+        if(user === "" || pass === ""){
+            setError(true)
+            return
+        }
+        setError(false)
+
+        try {
+            await login(user, pass);
+            setIsLoggedIn(true);
+
+        } catch (error) {
+            console.error('Error de autenticacion: ', error.message);
+            setError(true);
+        }
+    };
+
+    return {
+        user,
+        pass,
+        setUser,
+        setPass,
+        error,
+        isLoggedIn,
+        handleSubmit,
+    };
+
+};
