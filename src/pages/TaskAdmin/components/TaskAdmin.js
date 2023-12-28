@@ -1,18 +1,14 @@
 import React from "react";
-import { useState } from "react";
 import { useEffect } from "react";
 import '../styles/TaskAdmin.css'
 import Form from "./Form";
 import Task from "./Task";
 import TaskAdminService from "../services/TaskAdminService";
-import { TaskLoadService } from "../services/TaskLoadService";
-import { FormProfile } from '../../Profile/components/FormProfile';
 
 function TaskAdmin () {
 
     const {
         tasks,
-        setTasks,
         handleDragStart,
         handleDragOver,
         handleDrop,

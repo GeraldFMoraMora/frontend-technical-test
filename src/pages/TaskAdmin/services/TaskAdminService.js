@@ -1,5 +1,7 @@
 import { useState } from "react";
-import { TaskLoadService } from "../services/TaskLoadService";
+import { TaskAddService, TaskLoadService } from "../services/TaskLoadService";
+import { TaskDeleteService } from '../services/TaskLoadService';
+import { TaskService } from '../services/TaskLoadService';
 
 const TaskAdminService = () => {
     const [tasks, setTasks] = useState([]);
@@ -26,10 +28,12 @@ const TaskAdminService = () => {
 
     const handleDeleteTask = (id) => {
         const updatedTask = tasks.filter(task => task.id !== id);
+        TaskDeleteService(20, id);
         setTasks(updatedTask);
     };
 
-    const handleAddTask = (newTaskTxt) => {
+    const handleAddTask = (newTaskTxt, user) => {
+        TaskAddService(newTaskTxt, "todo", "", true, user);
         const newTask = {
             id: tasks.length+1,
             description: newTaskTxt,

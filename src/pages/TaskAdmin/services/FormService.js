@@ -10,7 +10,7 @@ const FormService = (onAddTask) => {
     const handleSend = e => {
         e.preventDefault(); 
 
-        onAddTask(input);
+        onAddTask(input, 20);
         
     }
     return {
