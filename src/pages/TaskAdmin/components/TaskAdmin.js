@@ -1,21 +1,30 @@
 import React from "react";
 import { useState } from "react";
+import { useEffect } from "react";
 import '../styles/TaskAdmin.css'
 import Form from "./Form";
 import Task from "./Task";
 import TaskAdminService from "../services/TaskAdminService";
+import { TaskLoadService } from "../services/TaskLoadService";
 import { FormProfile } from '../../Profile/components/FormProfile';
 
 function TaskAdmin () {
 
     const {
         tasks,
+        setTasks,
         handleDragStart,
         handleDragOver,
         handleDrop,
         handleDeleteTask,
         handleAddTask,
+        fetchTaskData,
       } = TaskAdminService();
+
+    useEffect( () => {
+        fetchTaskData();
+    },[]
+    );
       
     return (
         <div className="admin-task-div">
@@ -32,12 +41,12 @@ function TaskAdmin () {
                     <h2 className="admin-task-titles">To Do</h2>
                     <div className="task-list-div">
                     {tasks
-                    .filter((task) => task.status === "todo")
+                    .filter((task) => task.state === "todo")
                     .map((task) => (
                         <Task 
                             key={task.id} 
                             id={task.id}
-                            text={task.text} 
+                            text={task.description} 
                             onDragStart={handleDragStart}
                             onDeleteTask = { handleDeleteTask }
                         />
@@ -53,14 +62,14 @@ function TaskAdmin () {
                     <h2 className="admin-task-titles">Working</h2>
                     <div className="task-list-div">
                     {tasks
-                    .filter((task) => task.status === "working")
+                    .filter((task) => task.state === "working")
                     .map((task) => (
                         <Task 
                             key={task.id} 
                             id={task.id}
-                            text={task.text} 
+                            text={task.description} 
                             onDragStart={handleDragStart}
-                            onDeleteTask = {handleDeleteTask}
+                            onDeleteTask = { handleDeleteTask }
                         />
                     ))}
 
@@ -74,14 +83,14 @@ function TaskAdmin () {
                     <h2 className="admin-task-titles">Done</h2>
                     <div className="task-list-div">
                     {tasks
-                    .filter((task) => task.status === "done")
+                    .filter((task) => task.state === "done")
                     .map((task) => (
                         <Task 
                             key={task.id} 
                             id={task.id}
-                            text={task.text} 
+                            text={task.description} 
                             onDragStart={handleDragStart}
-                            onDeleteTask = {handleDeleteTask}
+                            onDeleteTask = { handleDeleteTask }
                         />
                     ))}
 

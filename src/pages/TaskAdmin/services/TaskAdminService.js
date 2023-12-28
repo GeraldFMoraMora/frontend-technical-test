@@ -1,29 +1,23 @@
 import { useState } from "react";
+import { TaskLoadService } from "../services/TaskLoadService";
 
 const TaskAdminService = () => {
-    const [tasks, setTasks] = useState([
-        { id: 1, text: "Task 1", status: "todo" },
-        { id: 2, text: "Task 2", status: "todo" },
-        { id: 3, text: "Task 3", status: "working" },
-        { id: 4, text: "Task 4", status: "working" },
-        { id: 5, text: "Task 5", status: "working" },
-        { id: 6, text: "Task 6", status: "working" },
-      ]);
+    const [tasks, setTasks] = useState([]);
 
-    const handleDragStart = (e, text) => {
-        e.dataTransfer.setData("text/plain", text);
+    const handleDragStart = (e, description) => {
+        e.dataTransfer.setData("text/plain", description);
     };
 
     const handleDragOver = (e) => {
         e.preventDefault();
     };
 
-    const handleDrop = (e, status) => {
+    const handleDrop = (e, state) => {
         e.preventDefault();
         const draggedText = e.dataTransfer.getData("text/plain");
 
         const updatedTasks = tasks.map((task) =>
-            task.text === draggedText ? { ...task, status } : task
+            task.description === draggedText ? { ...task, state } : task
         );
 
         setTasks(updatedTasks);
@@ -38,19 +32,31 @@ const TaskAdminService = () => {
     const handleAddTask = (newTaskTxt) => {
         const newTask = {
             id: tasks.length+1,
-            text: newTaskTxt,
-            status: "todo",
+            description: newTaskTxt,
+            state: "todo",
         };
         setTasks([...tasks, newTask]);
     }
+    const fetchTaskData = async () => {
+        try {
+            const data = await TaskLoadService(20);
+            console.log(data.task);
+            const taskList = data.task;
+            setTasks(taskList);
+        } catch (error){
+            console.error('Error al obtener los datos de las tareas: ', error.message);
+        }
+    };
 
     return { 
         tasks,
+        setTasks,
         handleDragStart,
         handleDragOver,
         handleDrop,
         handleDeleteTask,
         handleAddTask,
+        fetchTaskData,
     };
 
 }
