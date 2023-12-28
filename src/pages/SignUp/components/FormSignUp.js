@@ -1,83 +1,23 @@
-import { useState } from "react";
 import '../styles/FormSignUp.css';
-import { signUp } from '../services/SignUpService';
 import { Home } from '../../Home/components/Home';
+import { SignUpValidationService } from '../services/SignUpValidationService';
 
 export function FormSignUp() {
-    const [user, setUser] = useState('');
-    const [pass, setPass] = useState('');
-    const [tel, setTel] = useState('');
-    const [age, setAge] = useState('18-30');
-    const [gender, setGender] = useState('');
-    const [error, setError] = useState(false);
-    const [isRegistered, setIsRegistered] = useState(false);
-
-    const handleGenderChange = (e) => {
-        setGender(e.target.value);
-    }
-
-    const handleSubmit = async (e) => {
-        e.preventDefault(); 
-        if(
-            user === "" || 
-            pass === "" || 
-            tel === ""||
-            age === "" ||
-            gender === ""){
-                setError('Any field can\'t be empty')
-            return
-        }
-        
-        try{
-            await signUp(user, pass, tel, age, gender);
-        }catch{
-            console.error('Error at register user: ', error.message);
-            setError(true);
-        }
-        setError('');
-        setIsRegistered(true);
-        
-    }
-
-    const handleTelChange = (e) => {
-        const formattedNumber = formatPhoneNumber(e.target.value);
-        setTel(formattedNumber);
-    } 
-
-    const formatPhoneNumber = (input) => {
-        const phoneNumber = input.replace(/\D/g, '');
-
-        const formattedPhoneNumber = phoneNumber.replace(/(\d{4})(\d{4})/, '$1-$2');
-
-        return formattedPhoneNumber;
-    }
-
-    const handlePassChange = (e) => {
-        const newPass = e.target.value;
-        setPass(newPass);
-
-        if (validatePass(newPass)){
-            setError('');
-        }else{
-            setError('Invalid password format');
-        }
-    }
-
-    const validatePass = (password) => {
-        const hasLetter = /[a-zA-Z]/.test(password);
-        const hasNumber = /\d/.test(password);
-        const hasUpperCase = /[A-Z]/.test(password);
-        const hasSpecialChar = /[!@#$%^&*(),.?":{}|<>]/.test(password);
-        const isLengthValid = password.length >= 8 && password.length <= 12;
-
-        return (
-            hasLetter &&
-            hasNumber &&
-            hasUpperCase &&
-            !hasSpecialChar &&
-            isLengthValid
-        );
-    }
+    const {
+        user,
+        setUser,
+        pass,
+        tel,
+        age,
+        setAge,
+        gender, 
+        error,
+        isRegistered,
+        handleGenderChange,
+        handleSubmit,
+        handleTelChange,
+        handlePassChange,
+    } = SignUpValidationService();
 
     return (
         <div className="form-sign-div">

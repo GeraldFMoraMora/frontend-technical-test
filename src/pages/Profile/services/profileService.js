@@ -1,4 +1,6 @@
+import { useState, useEffect } from 'react';
 const API_URL = "http://localhost:8080";
+
 
 export async function findByName(name) {
     const response = await fetch(`${API_URL}/customer/findByName/${name}`, {
@@ -15,3 +17,26 @@ export async function findByName(name) {
     console.log(data);
     return data;
 }
+
+export const FormProfileService = () => {
+    const [userData, setUserData] = useState({
+        name : "",
+        password : "",
+        phone : "",
+        age : "",
+        gender : "",
+    });
+    const fetchUserData = async () => {
+        try {
+            const data = await findByName('Misael');
+            setUserData(data);
+        } catch (error){
+            console.error('Error al obtener los datos del usuario: ', error.message);
+        }
+    };
+
+    return {
+        userData,
+        fetchUserData,
+    };
+};

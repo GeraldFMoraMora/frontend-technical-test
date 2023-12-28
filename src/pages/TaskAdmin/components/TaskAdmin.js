@@ -4,6 +4,7 @@ import '../styles/TaskAdmin.css'
 import Form from "./Form";
 import Task from "./Task";
 import TaskAdminService from "../services/TaskAdminService";
+import { FormProfile } from '../../Profile/components/FormProfile';
 
 function TaskAdmin () {
 

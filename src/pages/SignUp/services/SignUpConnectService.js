@@ -1,6 +1,6 @@
 const API_URL = "http://localhost:8080";
 
-export async function signUp(name, 
+export async function signUpConnectService(name, 
                             password,
                             telephone,
                             age_range,
