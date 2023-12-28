@@ -49,3 +49,22 @@ export async function TaskAddService(description, state, image_url, is_active, c
     console.log(data);
     return data;
 };
+export async function TaskUpdateService(description, state, image_url, is_active, customer_id) {
+    console.log(JSON.stringify({ description, state, image_url, is_active, customer_id }));
+    const response = await fetch(`${API_URL}/task/updateTask`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer nL0SIQ38zFNfe1ggUJ66JYklQLgMt0sHmmRYMon7GaY',
+        },
+        body: JSON.stringify({ description, state, image_url, is_active, customer_id }),
+    });
+    if (!response.ok){
+        throw new Error('Error al registrar tarea');
+    }
+    console.log(JSON.stringify({ description, state, image_url, is_active, customer_id }));
+
+    const data = await response.json();
+    console.log(data);
+    return data;
+};

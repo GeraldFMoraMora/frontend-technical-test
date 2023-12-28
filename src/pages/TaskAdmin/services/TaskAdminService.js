@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { TaskAddService, TaskLoadService } from "../services/TaskLoadService";
 import { TaskDeleteService } from '../services/TaskLoadService';
+import { TaskUpdateService } from "../services/TaskLoadService";
 import { TaskService } from '../services/TaskLoadService';
 
 const TaskAdminService = () => {
@@ -14,13 +15,15 @@ const TaskAdminService = () => {
         e.preventDefault();
     };
 
-    const handleDrop = (e, state) => {
+    const handleDrop = (e, state, user) => {
         e.preventDefault();
         const draggedText = e.dataTransfer.getData("text/plain");
 
         const updatedTasks = tasks.map((task) =>
             task.description === draggedText ? { ...task, state } : task
         );
+
+        TaskUpdateService(e.dataTransfer.getData("text/plain"), state, "", true, user);
 
         setTasks(updatedTasks);
 
