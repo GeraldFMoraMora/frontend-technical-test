@@ -1,5 +1,5 @@
 .individual-task-div {
-    min-height: 15px;
+    min-height: 75px;
     background-color: #f7f7f7;
     margin: 5px 0;
     padding: 3px 3px 3px 3px;
@@ -27,13 +27,13 @@
 .task-icon {
     width: 25px;
     height: 25px;
-    margin: 5px;
+    margin: 1px;
     color: firebrick;
 }
 
 .img-icon {
     width: 25px;
     height: 25px;
-    margin: 5px;
+    margin: 1px;
     color: rgb(34, 178, 106);
 }
