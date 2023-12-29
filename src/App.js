@@ -6,6 +6,9 @@ import { Home } from './pages/Home/components/Home';
 import { useState } from 'react';
 import { FormSignUp } from './pages/SignUp/components/FormSignUp'
 import { FormProfile } from './pages/Profile/components/FormProfile';
+import Container from 'react-bootstrap/Container';
+import Nav from 'react-bootstrap/Nav';
+import Navbar from 'react-bootstrap/Navbar';
 
 
 function App() {
@@ -13,6 +16,7 @@ function App() {
   const [loginFlag, setLoginFlag] = useState(false);
 
   return (
+    <>
     <div className="app-task">
       <div className='icon-div'>
         <img 
@@ -21,12 +25,7 @@ function App() {
         />
       </div>
       <div className='task-list-principal'>
-        {/*<h1>My task</h1>
-        <TaskList/>
-        <FormProfile/>
-        <FormSignUp/>
-        <FormLogin setUserName={setUserName}/>
-        */}
+        
         <Home/>
 
         <p>{userName}</p>
@@ -35,6 +34,7 @@ function App() {
       </div>
 
     </div>
+    </>
   );
 }
 

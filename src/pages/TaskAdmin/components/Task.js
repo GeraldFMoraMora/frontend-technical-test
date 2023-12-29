@@ -1,4 +1,4 @@
-import { AiOutlineCloseCircle } from "react-icons/ai";
+import { AiOutlineCloseCircle, AiFillFileImage } from "react-icons/ai";
 import React from "react";
 import "../styles/Task.css";
 import TaskService from "../services/TaskService";
@@ -17,7 +17,12 @@ function Task({ id, text, onDragStart, onDeleteTask }) {
                 { text }
             </div>
             <div 
-                className="task-div-icon"
+                className="task-img-div-icon"
+            >
+                <AiFillFileImage className="img-icon"/>
+            </div>
+            <div 
+                className="task-delete-div-icon"
                 onClick={ handleDelete }
             >
                 <AiOutlineCloseCircle className="task-icon"/>
