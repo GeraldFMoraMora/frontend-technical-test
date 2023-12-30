@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const API_URL = "http://localhost:8080";
 
@@ -13,10 +13,12 @@ export async function login(name, password) {
     if (!response.ok){
         throw new Error('Error al autenticar');
     }
-    console.log(JSON.stringify({ name, password }));
-
     const data = await response.json();
-    console.log(data);
+
+    if(data.error){
+        throw new Error(data.message);
+    }
+    
     return data;
 };
 
@@ -24,7 +26,13 @@ export const AuthService = () => {
     const [user, setUser] = useState("");
     const [pass, setPass] = useState("");
     const [error, setError] = useState(false);
+    const [errorDescription, setErrorDescription] = useState(null);
     const [isLoggedIn, setIsLoggedIn] = useState(false);
+    const [customer, setCustomer] = useState(null);
+
+    useEffect(() => {
+        console.log(customer);
+    }, [customer]);
 
     const handleSubmit = async (e) => {
         e.preventDefault(); 
@@ -36,13 +44,16 @@ export const AuthService = () => {
         setError(false)
 
         try {
-            await login(user, pass);
+            const data = await login(user, pass);
             setIsLoggedIn(true);
-
+            setCustomer(data.customer);
         } catch (error) {
             console.error('Error de autenticacion: ', error.message);
+            setIsLoggedIn(false);
             setError(true);
+            setErrorDescription(error.message);
         }
+        
     };
 
     return {
@@ -53,6 +64,9 @@ export const AuthService = () => {
         error,
         isLoggedIn,
         handleSubmit,
+        errorDescription,
+        customer,
+        setCustomer,
     };
 
 };

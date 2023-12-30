@@ -17,6 +17,8 @@ export function FormLogin() {
         error,
         isLoggedIn,
         handleSubmit,
+        errorDescription,
+        customer,
     } = AuthService();
 
     const formRef = useRef(null);
@@ -57,7 +59,7 @@ export function FormLogin() {
                         <Button type='submit' className='btn-login'>Login</Button>{' '}
                         {error && 
                         <Alert className="error-message" key={'warning'} variant={'warning'}>
-                            Authentication failed
+                            Authentication failed: {errorDescription}
                         </Alert>
                     }
 
@@ -66,7 +68,7 @@ export function FormLogin() {
                 </div>)}
                 {isLoggedIn === true && error === false && (
                 <div>
-                    <TaskAdmin/>
+                    <TaskAdmin customer={customer}/>
                 </div>)}
             </div>
             

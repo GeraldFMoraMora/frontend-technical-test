@@ -5,14 +5,18 @@ export async function TaskLoadService(user) {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
-            'Authorization': 'Bearer nL0SIQ38zFNfe1ggUJ66JYklQLgMt0sHmmRYMon7GaY',
+            'Authorization': 'Bearer uw2EQQl6tLlprP_2uhnJNQMHgNvrCYqeMAPrxYo4zx8',
         },
     });
     if (!response.ok){
         throw new Error('Error al extraer las tareas');
     }
-
     const data = await response.json();
+    
+    if(data.error){
+        throw new Error(data.message);
+    }
+
     return data;
 };
 export async function TaskDeleteService(user, id) {

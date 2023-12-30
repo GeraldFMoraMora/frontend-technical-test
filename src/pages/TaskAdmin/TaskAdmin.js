@@ -3,7 +3,7 @@ import appLogo from '../../images/tasklogo.jpg';
 import TaskManager from './components/TaskManager';
 import './styles/TaskManager.css';
 
-function TaskAdmin() {
+function TaskAdmin({customer}) {
     return (
         <div className="taskadmin-principal-div">
             <div className='component-div'>

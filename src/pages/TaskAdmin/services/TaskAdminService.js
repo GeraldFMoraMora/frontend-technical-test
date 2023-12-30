@@ -6,6 +6,8 @@ import { TaskService } from '../services/TaskLoadService';
 
 const TaskAdminService = () => {
     const [tasks, setTasks] = useState([]);
+    const [error, setError] = useState(false);
+    const [errorDescription, setErrorDescription] = useState("");
 
     const handleDragStart = (e, description) => {
         e.dataTransfer.setData("text/plain", description);
@@ -46,12 +48,13 @@ const TaskAdminService = () => {
     }
     const fetchTaskData = async () => {
         try {
-            const data = await TaskLoadService(20);
-            console.log(data.task);
+            const data = await TaskLoadService(49);
             const taskList = data.task;
             setTasks(taskList);
         } catch (error){
             console.error('Error al obtener los datos de las tareas: ', error.message);
+            setError(true);
+            setErrorDescription(error.message);
         }
     };
 
@@ -64,6 +67,8 @@ const TaskAdminService = () => {
         handleDeleteTask,
         handleAddTask,
         fetchTaskData,
+        errorDescription,
+        error,
     };
 
 }

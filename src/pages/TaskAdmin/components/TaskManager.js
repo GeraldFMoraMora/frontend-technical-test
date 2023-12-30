@@ -32,7 +32,7 @@ function TaskManager() {
                 <div 
                     className="task-todo-div"
                     onDragOver={(e) => handleDragOver(e)}
-                    onDrop={(e)=> handleDrop(e, "todo", 20)}
+                    onDrop={(e)=> handleDrop(e, "todo", 49)}
                 >
                     <h2 className="admin-task-titles">To Do</h2>
                     <div className="task-list-div">
@@ -53,7 +53,7 @@ function TaskManager() {
                 <div 
                     className="task-working-div"
                     onDragOver={(e)=> handleDragOver(e)}
-                    onDrop={(e)=> handleDrop(e,"working", 20)}
+                    onDrop={(e)=> handleDrop(e,"working", 49)}
                 >
                     <h2 className="admin-task-titles">Working</h2>
                     <div className="task-list-div">
@@ -74,7 +74,7 @@ function TaskManager() {
                 <div 
                     className="task-finish-div"
                     onDragOver={(e)=> handleDragOver(e)}
-                    onDrop={(e)=> handleDrop(e,"done", 20)}
+                    onDrop={(e)=> handleDrop(e,"done", 49)}
                 >
                     <h2 className="admin-task-titles">Done</h2>
                     <div className="task-list-div">
