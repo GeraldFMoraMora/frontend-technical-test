@@ -7,6 +7,7 @@ import Navbar from 'react-bootstrap/Navbar';
 import Home from '../pages/Home/Home';
 import Profile from '../pages/Profile/Profile'
 import TaskAdmin from '../pages/TaskAdmin/components/TaskManager';
+import { Link } from 'react-router-dom';
 
 function NavBar() {
 
@@ -14,14 +15,15 @@ function NavBar() {
     <div>
       <Navbar bg="dark" data-bs-theme="dark">
         <Container>
-          <Navbar.Brand href="#home">Task App</Navbar.Brand>
+          <Navbar.Brand as={Link} to="/home">Task App</Navbar.Brand>
           <Nav className="me-auto">
-            <Nav.Link href="#home">Home</Nav.Link>
-            <Nav.Link href="#profile">Profile</Nav.Link>
-            <Nav.Link href="#task">Tasks</Nav.Link>
+            <Nav.Link as={Link} to="/">Exit</Nav.Link>
+            <Nav.Link as={Link} to="/profile">Profile</Nav.Link>
+            <Nav.Link as={Link} to="/taskadmin">Tasks</Nav.Link>
           </Nav>
         </Container>
       </Navbar>
+      
     </div>
   );
 }

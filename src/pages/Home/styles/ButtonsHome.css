@@ -9,8 +9,7 @@
 .btn-sign {
     width: 180px;
     font-family: 'Courier New', Courier, monospace;
-    margin: 40px 0 0 0;
-
+    margin: 10px 0 0 0;
 }
 
 .btn-log {
@@ -19,4 +18,12 @@
     margin: 20px 0 0 0;
     align-items: center;
 
+}
+
+.title-home-div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    flex-direction: column;
 }

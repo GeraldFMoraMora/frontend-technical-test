@@ -1,0 +1,31 @@
+.nav-floating{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    background-color: rgb(255, 255, 255);
+    border-radius: 9px;
+    margin-bottom: 5%;
+}
+.nav-floating-list{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    list-style-type: none;
+    text-decoration: none;
+    margin-top: 2%;
+}
+.nav-floating-list li a{
+    text-decoration: none;
+    color: rgb(114, 113, 113);
+    font-size: 20px;
+}
+.nav-floating-list li a:hover{
+    text-decoration: none;
+    color: black;
+    font-size: 20px;
+    font-weight: bold;
+}
+li {
+    margin: 0 20px 0 0;
+}

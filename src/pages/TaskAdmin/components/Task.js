@@ -47,7 +47,7 @@ function Task({ id, text, onDragStart, onDeleteTask }) {
                     width={40}
                     height={40}
                     border={1}
-                    color={[255,255,0,0.6]}
+                    color={[0,0,0,0.6]}
                     scale={1}
                     onImageReady={handleSaveImage}
                 />

@@ -1,6 +1,7 @@
 import React from "react";
 import { FormSignUp } from './components/FormSignUp';
 import './styles/SignUp.css';
+import { Outlet } from "react-router-dom";
 
 function SignUp() {
     return (

@@ -33,7 +33,7 @@ select {
 }
 
 .formSignUp {
-    margin-top: 40px;
+    margin-top: 10px;
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
