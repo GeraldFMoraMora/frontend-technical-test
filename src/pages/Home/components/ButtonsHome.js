@@ -1,19 +1,21 @@
-import '../styles/Home.css'
+import '../styles/ButtonsHome.css'
 import { FormSignUp } from '../../SignUp/components/FormSignUp';
 import { FormLogin } from '../../Auth/components/FormLogin';
+import Auth from '../../Auth/Auth';
+import SignUp from '../../SignUp/SignUp';
 import { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 
-export function Home () {
+export function ButtonsHome () {
 
     const [selectedComponent, setSelectedComponent] = useState(null);
 
     const handleLoginBtn = () => {
-        setSelectedComponent(<FormLogin/>);
+        setSelectedComponent(<Auth/>);
     };
 
     const handleSignUpBtn = () => {
-        setSelectedComponent(<FormSignUp />);
+        setSelectedComponent(<SignUp />);
     };
 
     return(

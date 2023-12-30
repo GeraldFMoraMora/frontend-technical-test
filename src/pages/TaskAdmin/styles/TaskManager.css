@@ -1,0 +1,60 @@
+.admin-task-div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.admin-task-principal {
+    display: flex;
+    align-items: start;
+    justify-content: center;
+
+}
+.task-todo-div{
+    background-color: rgb(35, 49, 175);
+    margin: 40px 3px 0 3px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border-radius: 2px 2px 2px 2px;
+    min-width: 160px;
+    width: 180px;
+    max-width: 193px;
+
+}
+.task-working-div{
+    background-color: rgb(224, 187, 22);
+    margin: 40px 3px 0 3px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border-radius: 2px 2px 2px 2px;
+    min-width: 160px;
+    width: 180px;
+    max-width: 193px;
+
+}
+.task-finish-div{
+    background-color: rgb(10, 204, 3);
+    border-radius: 2px 2px 2px 2px;
+    margin: 40px 3px 0 3px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    min-width: 160px;
+    width: 180px;
+    max-width: 193px;
+
+}
+.admin-task-titles{
+    color: white;
+    font-family: Roboto, sans-serif;
+    margin-bottom: 10px;
+    margin-top: 5px;
+}

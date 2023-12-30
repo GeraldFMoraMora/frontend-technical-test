@@ -1,11 +1,11 @@
 import React from "react";
 import { useEffect } from "react";
-import '../styles/TaskAdmin.css'
+import '../styles/TaskManager.css'
 import Form from "./Form";
 import Task from "./Task";
 import TaskAdminService from "../services/TaskAdminService";
 
-function TaskAdmin () {
+function TaskManager() {
 
     const {
         tasks,
@@ -99,4 +99,4 @@ function TaskAdmin () {
     );
 }
 
-export default TaskAdmin;
+export default TaskManager;

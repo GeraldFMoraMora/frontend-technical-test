@@ -1,11 +1,12 @@
 import '../styles/FormSignUp.css';
 import { useRef } from 'react';
-import { Home } from '../../Home/components/Home';
+import { ButtonsHome } from '../../Home/components/ButtonsHome';
 import { SignUpValidationService } from '../services/SignUpValidationService';
 import Button from 'react-bootstrap/Button';
 import DropdownButton from 'react-bootstrap/DropdownButton';
 import Dropdown from 'react-bootstrap/Dropdown';
-import { Alert, ButtonGroup } from 'react-bootstrap';
+import { Alert, ButtonGroup, Form } from 'react-bootstrap';
+import InputGroup from 'react-bootstrap/InputGroup';
 
 export function FormSignUp() {
     const {
@@ -45,26 +46,35 @@ export function FormSignUp() {
                     className="formSignUp"
                     onSubmit={handleSubmit}
                 >
-                    <input 
-                        className="input-data"
-                        type="text"
+                    <InputGroup className="mb-3">
+                        <InputGroup.Text id="basic-addon1">@</InputGroup.Text>
+                        <Form.Control
+                        placeholder="Username"
+                        aria-label="Username"
+                        aria-describedby="basic-addon1"
                         value={user}
                         onChange={e => setUser(e.target.value)}
-                        placeholder="Enter your username"
-                    />
-                    <input 
-                        className="input-data"
+                        />
+                    </InputGroup>
+                    <Form.Control
                         type="password"
+                        id="inputPassword5"
+                        aria-describedby="passwordHelpBlock"
+                        placeholder="Enter your password"
                         value={pass}
                         onChange={handlePassChange}
-                        placeholder="Enter your password"
                     />
-                    <input 
-                        className="input-data"
+                    <Form.Text id="passwordHelpBlock" muted>
+                        Your password must be 8-12 characters long, contain only upper and lower case letters and numbers,
+                        and must not contain special characters, or emoji.
+                    </Form.Text>
+                    <Form.Control
                         type="text"
+                        id="inputphonenum"
+                        aria-describedby="basic-addon1"
+                        placeholder="Enter your phone number"
                         value={tel}
                         onChange={handleTelChange}
-                        placeholder="Enter your phone number (0000-0000)"
                     />
                     <ButtonGroup className='select-combobox'>
                         <DropdownButton 
@@ -116,7 +126,7 @@ export function FormSignUp() {
             </div>)}
             {isRegistered === true && (
             <div className='component-div'>
-            {<Home/>}
+            {<ButtonsHome/>}
             </div>)}
 
         </div>

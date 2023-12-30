@@ -2,7 +2,7 @@ import './styles/App.css';
 import TaskList from './pages/Task/components/TaskList';
 import appLogo from './images/tasklogo.jpg';
 import { FormLogin } from './pages/Auth/components/FormLogin';
-import { Home } from './pages/Home/components/Home';
+import Home from './pages/Home/Home';
 import { useState } from 'react';
 import { FormSignUp } from './pages/SignUp/components/FormSignUp'
 import { FormProfile } from './pages/Profile/components/FormProfile';
@@ -21,6 +21,7 @@ function App() {
     <NavBar/>
     <div className="app-task">
       
+      
       <div className='icon-div'>
         <img 
           src={appLogo}
@@ -30,9 +31,6 @@ function App() {
       <div className='task-list-principal'>
         
         <Home/>
-
-        <p>{userName}</p>
-        
         
       </div>
 

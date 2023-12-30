@@ -2,10 +2,11 @@ import '../styles/FormLogin.css';
 import { useState, useRef } from 'react';
 import { login } from '../services/authService';
 import { FormProfile } from '../../Profile/components/FormProfile'
-import Form from '../../Task/components/Form';
-import TaskAdmin from '../../TaskAdmin/components/TaskAdmin';
+import TaskAdmin from '../../TaskAdmin/TaskAdmin';
 import { AuthService } from '../services/authService';
 import Button from 'react-bootstrap/Button';
+import InputGroup from 'react-bootstrap/InputGroup';
+import { Alert, Form } from 'react-bootstrap';
 
 export function FormLogin() {
     const {
@@ -33,26 +34,35 @@ export function FormLogin() {
                         className='form-login'
                         onSubmit={handleSubmit}
                     >
-                        <input 
-                            className="input-data"
-                            type="text"
+                        <InputGroup className="mb-3">
+                            <InputGroup.Text id="basic-addon2">@</InputGroup.Text>
+                            <Form.Control
+                            placeholder="Username"
+                            aria-label="Username"
+                            aria-describedby="basic-addon1"
                             value={user}
                             onChange={e => setUser(e.target.value)}
-                            placeholder="Enter your username"
-                        />
-                        
-                        <input 
-                            className="input-data"
+                            />
+                        </InputGroup>
+                            
+                        <Form.Control
                             type="password"
+                            id="inputPassword6"
+                            aria-describedby="passwordHelpBlock"
+                            placeholder="Enter your password"
                             value={pass}
                             onChange={e => setPass(e.target.value)}
-                            placeholder="Enter your password"
                         />
 
                         <Button type='submit' className='btn-login'>Login</Button>{' '}
+                        {error && 
+                        <Alert className="error-message" key={'warning'} variant={'warning'}>
+                            Authentication failed
+                        </Alert>
+                    }
 
                     </form>
-                    {error && <p className='error-message'>Authentication failed</p>}
+                    
                 </div>)}
                 {isLoggedIn === true && error === false && (
                 <div>

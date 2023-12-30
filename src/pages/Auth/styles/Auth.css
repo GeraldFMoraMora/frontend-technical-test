@@ -8,7 +8,7 @@
     margin: 20px 0;
   }
   
-  .taskadmin-principal-div {
+  .auth-principal-div {
     display:flex;
     flex-wrap: wrap;
     justify-content: center;

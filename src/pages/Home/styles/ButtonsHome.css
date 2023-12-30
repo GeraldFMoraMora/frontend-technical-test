@@ -1,0 +1,22 @@
+.btns-home-div {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-sign {
+    width: 180px;
+    font-family: 'Courier New', Courier, monospace;
+    margin: 40px 0 0 0;
+
+}
+
+.btn-log {
+    width: 180px;
+    font-family: 'Courier New', Courier, monospace;
+    margin: 20px 0 0 0;
+    align-items: center;
+
+}
