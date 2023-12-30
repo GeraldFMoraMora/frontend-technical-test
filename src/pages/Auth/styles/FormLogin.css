@@ -15,7 +15,8 @@ h2 {
 .form-login {
     display: flex;
     flex-direction: column;
-    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
     margin-top: 40px;
 }
 
@@ -34,7 +35,7 @@ h2 {
 }
 
 .btn-login {
-    margin-top: 1% 0 30% 0;
+    width: 180px;
     color: #1b1b1b;
 }
 

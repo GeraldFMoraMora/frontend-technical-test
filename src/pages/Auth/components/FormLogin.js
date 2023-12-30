@@ -1,10 +1,11 @@
 import '../styles/FormLogin.css';
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { login } from '../services/authService';
 import { FormProfile } from '../../Profile/components/FormProfile'
 import Form from '../../Task/components/Form';
 import TaskAdmin from '../../TaskAdmin/components/TaskAdmin';
 import { AuthService } from '../services/authService';
+import Button from 'react-bootstrap/Button';
 
 export function FormLogin() {
     const {
@@ -16,7 +17,9 @@ export function FormLogin() {
         isLoggedIn,
         handleSubmit,
     } = AuthService();
-    
+
+    const formRef = useRef(null);
+
     return (
         <section>
             <div className='login-div'>
@@ -26,6 +29,7 @@ export function FormLogin() {
                         <h2 className='title-h2'>Login</h2>
                     </div>
                     <form 
+                        ref={formRef}
                         className='form-login'
                         onSubmit={handleSubmit}
                     >
@@ -44,7 +48,8 @@ export function FormLogin() {
                             onChange={e => setPass(e.target.value)}
                             placeholder="Enter your password"
                         />
-                        <button className='btn-login'>Iniciar Sesion</button>
+
+                        <Button type='submit' className='btn-login'>Login</Button>{' '}
 
                     </form>
                     {error && <p className='error-message'>Authentication failed</p>}

@@ -9,6 +9,7 @@ import { FormProfile } from './pages/Profile/components/FormProfile';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
+import NavBar from './components/NavBar';
 
 
 function App() {
@@ -17,7 +18,9 @@ function App() {
 
   return (
     <>
+    <NavBar/>
     <div className="app-task">
+      
       <div className='icon-div'>
         <img 
           src={appLogo}

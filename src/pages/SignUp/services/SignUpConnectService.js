@@ -11,6 +11,7 @@ export async function signUpConnectService(name,
     }else{
         gender = 0;
     }
+    is_active = true
 
     console.log(JSON.stringify({ name, 
                                     password, 
@@ -18,6 +19,7 @@ export async function signUpConnectService(name,
                                     age_range,
                                     gender,
                                     is_active }));
+    
     const response = await fetch(`${API_URL}/customer/register`, {
         method: 'POST',
         headers: {

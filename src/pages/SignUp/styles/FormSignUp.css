@@ -1,15 +1,19 @@
 .error-message {
-    display: flex;
-    flex-direction: column;
     color:crimson;
     padding: 16px;
     font-size: 18px;
     font-family: Roboto, sans-serif;
-    align-items: center;
+    margin-top: 2%;
+    margin-left: 80px;
+    width: 400px;
+    min-width: 180px;
+    max-width: 450px;
 }
 
 .btn-register {
     text-transform: capitalize;
+    width: 180px;
+    margin-left: 82px;
 }
 
 h2 {
@@ -39,6 +43,7 @@ select {
 }
 
 .radio-options-div{
+    margin-top: 2%;
     display: flex;
     flex-direction: column;
     align-items: normal;
@@ -52,4 +57,9 @@ select {
 
 .radio {
     margin-left: 15%;
+}
+.select-combobox {
+    width: min-content;
+    margin-top: 1%;
+    margin-left: 82px;
 }

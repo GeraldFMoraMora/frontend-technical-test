@@ -2,6 +2,7 @@ import '../styles/Home.css'
 import { FormSignUp } from '../../SignUp/components/FormSignUp';
 import { FormLogin } from '../../Auth/components/FormLogin';
 import { useState } from 'react';
+import Button from 'react-bootstrap/Button';
 
 export function Home () {
 
@@ -23,8 +24,8 @@ export function Home () {
                     <h1>Welcome</h1>
                 </div>
                 <div className='btns-home-div'>
-                    <button className='btn-sign' onClick={handleSignUpBtn}>Sign Up</button>
-                    <button className='btn-log' onClick={handleLoginBtn}>Login</button>
+                    <Button className='btn-sign' type='submit' onClick={handleSignUpBtn}>Sign Up</Button>{' '}
+                    <Button className='btn-log' type='submit' onClick={handleLoginBtn}>Login</Button>{' '}
                 </div>
             </div>)}
             <div className='component-div'>

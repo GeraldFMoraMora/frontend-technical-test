@@ -1,6 +1,11 @@
 import '../styles/FormSignUp.css';
+import { useRef } from 'react';
 import { Home } from '../../Home/components/Home';
 import { SignUpValidationService } from '../services/SignUpValidationService';
+import Button from 'react-bootstrap/Button';
+import DropdownButton from 'react-bootstrap/DropdownButton';
+import Dropdown from 'react-bootstrap/Dropdown';
+import { Alert, ButtonGroup } from 'react-bootstrap';
 
 export function FormSignUp() {
     const {
@@ -17,7 +22,16 @@ export function FormSignUp() {
         handleSubmit,
         handleTelChange,
         handlePassChange,
+        titleAge,
+        setTitleAge,
     } = SignUpValidationService();
+
+    const formRef = useRef(null);
+
+    const handleAgeChange = (ageSelected) => {
+        setAge(ageSelected);
+        setTitleAge(ageSelected);
+    };
 
     return (
         <div className="form-sign-div">
@@ -27,6 +41,7 @@ export function FormSignUp() {
                     <h2>SignUp</h2>
                 </div>
                 <form 
+                    ref={formRef}
                     className="formSignUp"
                     onSubmit={handleSubmit}
                 >
@@ -51,18 +66,20 @@ export function FormSignUp() {
                         onChange={handleTelChange}
                         placeholder="Enter your phone number (0000-0000)"
                     />
-                    <select 
-                        name="Age"
-                        className="select-combobox"
-                        value={age}
-                        onChange={e=> setAge(e.target.value)}
-                    >
-                        <option>10-17</option>
-                        <option>18-30</option>
-                        <option>31-50</option>
-                        <option>51-64</option>
-                        <option>65+</option>
-                    </select>
+                    <ButtonGroup className='select-combobox'>
+                        <DropdownButton 
+                            as={ButtonGroup} 
+                            title={titleAge} 
+                            id="bg-nested-dropdown"
+                            defaultValue={age}
+                        >
+                            <Dropdown.Item eventKey="1" onClick={() => handleAgeChange("10-17")}>10-17</Dropdown.Item>
+                            <Dropdown.Item eventKey="2" onClick={() => handleAgeChange("18-30")}>18-30</Dropdown.Item>
+                            <Dropdown.Item eventKey="3" onClick={() => handleAgeChange("31-50")}>31-50</Dropdown.Item>
+                            <Dropdown.Item eventKey="4" onClick={() => handleAgeChange("51-64")}>51-64</Dropdown.Item>
+                            <Dropdown.Item eventKey="5" onClick={() => handleAgeChange("65+")}>65+</Dropdown.Item>
+                        </DropdownButton>
+                    </ButtonGroup>
                     <div className="radio-options-div">
                         <div className="radio-and-label">
                             <input
@@ -86,14 +103,16 @@ export function FormSignUp() {
                             />
                             <label>Men</label>
                         </div>
+                        
                     </div>
-                    <button
-                        className="btn-register"
-                    >   
-                        Register now
-                    </button>
+                    <Button type='submit' className="btn-register">Register now</Button>{' '}
+                    {error && 
+                        <Alert className="error-message" key={'warning'} variant={'warning'}>
+                            {error}
+                        </Alert>
+                    }
                 </form>
-                {error && <p className="error-message">{error}</p>}
+                
             </div>)}
             {isRegistered === true && (
             <div className='component-div'>

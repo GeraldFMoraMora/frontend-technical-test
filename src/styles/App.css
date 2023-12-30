@@ -7,9 +7,9 @@
 html,
 body {
   color:white;
-  background-color: cadetblue;
+  background-color: white;
   font-family: Lato, sans-serif;
-  margin-top: 40px;
+  margin-top: 0px;
 }
 
 h1 {
@@ -44,7 +44,7 @@ h1 {
 .task-list-principal {
   width: 600px;
   min-height: 500px;
-  background-color: aliceblue;
+  background-color: rgb(146, 200, 248);
   padding: 25px;
   margin: 10px;
   justify-content: center;

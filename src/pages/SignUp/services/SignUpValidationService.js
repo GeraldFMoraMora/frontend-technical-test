@@ -5,6 +5,7 @@ export const SignUpValidationService = () => {
     const [pass, setPass] = useState('');
     const [tel, setTel] = useState('');
     const [age, setAge] = useState('18-30');
+    const [titleAge, setTitleAge] = useState('Age');
     const [gender, setGender] = useState('');
     const [error, setError] = useState(false);
     const [isRegistered, setIsRegistered] = useState(false);
@@ -25,7 +26,7 @@ export const SignUpValidationService = () => {
         }
         
         try{
-            await signUpConnectService(user, pass, tel, age, gender);
+            await signUpConnectService(user, pass, tel, age, gender, true);
         }catch{
             console.error('Error at register user: ', error.message);
             setError(true);
@@ -92,6 +93,8 @@ export const SignUpValidationService = () => {
         formatPhoneNumber,
         handlePassChange,
         validatePass,
+        titleAge,
+        setTitleAge
     };
 
 
