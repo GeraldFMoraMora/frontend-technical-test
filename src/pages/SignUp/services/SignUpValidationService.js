@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { signUpConnectService } from './SignUpConnectService';
+
 export const SignUpValidationService = () => {
     const [user, setUser] = useState('');
     const [pass, setPass] = useState('');
@@ -9,6 +10,7 @@ export const SignUpValidationService = () => {
     const [gender, setGender] = useState('');
     const [error, setError] = useState(false);
     const [isRegistered, setIsRegistered] = useState(false);
+    const formRef = useRef(null);
 
     const handleGenderChange = (e) => {
         setGender(e.target.value);
@@ -57,6 +59,10 @@ export const SignUpValidationService = () => {
             setError('Invalid password format');
         }
     }
+    const handleAgeChange = (ageSelected) => {
+        setAge(ageSelected);
+        setTitleAge(ageSelected);
+    };
     const validatePass = (password) => {
         const hasLetter = /[a-zA-Z]/.test(password);
         const hasNumber = /\d/.test(password);
@@ -94,7 +100,9 @@ export const SignUpValidationService = () => {
         handlePassChange,
         validatePass,
         titleAge,
-        setTitleAge
+        setTitleAge,
+        formRef,
+        handleAgeChange,
     };
 
 

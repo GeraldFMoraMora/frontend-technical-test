@@ -8,12 +8,7 @@ import Profile from '../Profile/Profile';
 function TaskAdmin({customer, token}) {
     return (
         <>
-        <div className="taskadmin-principal-div">
-            <div className='component-div'>
-                
-                
-            </div>
-        </div>
+        
         <Tabs
             defaultActiveKey='task'
             id="uncontrolled-tab"

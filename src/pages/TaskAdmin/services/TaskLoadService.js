@@ -16,7 +16,6 @@ export async function TaskLoadService(user, token) {
     if(data.error){
         throw new Error(data.message);
     }
-    console.log(data);
 
     return data;
 };
@@ -36,7 +35,6 @@ export async function TaskDeleteService(user, id, token) {
     return data;
 };
 export async function TaskAddService(description, state, image_url, is_active, customer_id, token) {
-    console.log(JSON.stringify({ description, state, image_url, is_active, customer_id, token }));
     const response = await fetch(`${API_URL}/task/addTask`, {
         method: 'POST',
         headers: {
@@ -48,14 +46,11 @@ export async function TaskAddService(description, state, image_url, is_active, c
     if (!response.ok){
         throw new Error('Error al registrar tarea');
     }
-    console.log(JSON.stringify({ description, state, image_url, is_active, customer_id }));
 
     const data = await response.json();
-    console.log(data);
     return data;
 };
 export async function TaskUpdateService(description, state, image_url, is_active, customer_id, token) {
-    console.log(JSON.stringify({ description, state, image_url, is_active, customer_id }));
     const response = await fetch(`${API_URL}/task/updateTask`, {
         method: 'POST',
         headers: {
@@ -67,9 +62,7 @@ export async function TaskUpdateService(description, state, image_url, is_active
     if (!response.ok){
         throw new Error('Error al registrar tarea');
     }
-    console.log(JSON.stringify({ description, state, image_url, is_active, customer_id }));
 
     const data = await response.json();
-    console.log(data);
     return data;
 };

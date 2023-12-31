@@ -11,14 +11,7 @@ export async function signUpConnectService(name,
     }else{
         gender = 0;
     }
-    is_active = true
-
-    console.log(JSON.stringify({ name, 
-                                    password, 
-                                    telephone,
-                                    age_range,
-                                    gender,
-                                    is_active }));
+    is_active = true;
     
     const response = await fetch(`${API_URL}/customer/register`, {
         method: 'POST',
@@ -35,14 +28,8 @@ export async function signUpConnectService(name,
     if (!response.ok){
         throw new Error('Error al registrar');
     }
-    console.log(JSON.stringify({ name, 
-        password, 
-        telephone,
-        age_range,
-        gender,
-        is_active }));
 
     const data = await response.json();
-    console.log(data);
+    
     return data;
 }

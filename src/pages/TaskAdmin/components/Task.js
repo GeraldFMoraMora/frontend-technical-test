@@ -12,25 +12,11 @@ function Task( props ) {
         handleSaveImage,
         image,
         editorRef,
-        setImage,
+        convertImage64toBlobUrl,
     } = TaskService(props.id, props.text, props.state, props.onDragStart, props.onDeleteTask, props.onImageAdd);
 
     useEffect(() => {
-        console.log(props.image64)
-
-        if (props.image64) {
-          const byteCharacters = atob(props.image64.split(',')[1]);
-          const byteNumbers = new Array(byteCharacters.length);
-          for (let i = 0; i < byteCharacters.length; i++) {
-            byteNumbers[i] = byteCharacters.charCodeAt(i);
-          }
-          const byteArray = new Uint8Array(byteNumbers);
-          const blob = new Blob([byteArray], { type: 'image/png' });
-    
-          const blobUrl = URL.createObjectURL(blob);
-          
-          setImage(blobUrl);
-        }
+        convertImage64toBlobUrl(props.image64);
       }, [props.image64]);
 
     return(

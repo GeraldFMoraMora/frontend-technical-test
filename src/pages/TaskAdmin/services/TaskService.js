@@ -27,10 +27,26 @@ export function TaskService(id, text, state, onDragStart, onDeleteTask, onImageA
     const handleSaveImage = () => {
         if(editorRef.current){
             const canvas = editorRef.current.getImageScaledToCanvas();
-            const base64 = canvas.toDataURL('image/jpeg'); 
-            console.log(base64);
+            const base64 = canvas.toDataURL('image/jpeg');
             onImageAdd(text, state, base64);
         }
+    };
+
+    const convertImage64toBlobUrl = (image64) => {
+        if (image64) {
+            const byteCharacters = atob(image64.split(',')[1]);
+            const byteNumbers = new Array(byteCharacters.length);
+            for (let i = 0; i < byteCharacters.length; i++) {
+              byteNumbers[i] = byteCharacters.charCodeAt(i);
+            }
+            const byteArray = new Uint8Array(byteNumbers);
+            const blob = new Blob([byteArray], { type: 'image/png' });
+      
+            const blobUrl = URL.createObjectURL(blob);
+            
+            setImage(blobUrl);
+          }
+
     };
     return {
         handleDragStart,
@@ -40,6 +56,7 @@ export function TaskService(id, text, state, onDragStart, onDeleteTask, onImageA
         image, 
         setImage,
         editorRef,
+        convertImage64toBlobUrl,
     };
     
 };

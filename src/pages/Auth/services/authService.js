@@ -1,4 +1,5 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
+import { useRef } from 'react';
 
 const API_URL = "http://localhost:8080";
 
@@ -30,10 +31,7 @@ export const AuthService = () => {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const [customer, setCustomer] = useState(null);
     const [token, setToken] =useState("");
-
-    useEffect(() => {
-        console.log(customer);
-    }, [customer]);
+    const formRef = useRef(null);
 
     const handleSubmit = async (e) => {
         e.preventDefault(); 
@@ -70,6 +68,7 @@ export const AuthService = () => {
         customer,
         setCustomer,
         token,
+        formRef,
     };
 
 };

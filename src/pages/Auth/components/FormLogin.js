@@ -1,5 +1,4 @@
 import '../styles/FormLogin.css';
-import { useRef } from 'react';
 import TaskAdmin from '../../TaskAdmin/TaskAdmin';
 import { AuthService } from '../services/authService';
 import Button from 'react-bootstrap/Button';
@@ -18,9 +17,9 @@ export function FormLogin() {
         errorDescription,
         customer,
         token,
+        formRef,
     } = AuthService();
-
-    const formRef = useRef(null);
+    
 
     return (
         <section>

@@ -1,5 +1,4 @@
 import '../styles/FormSignUp.css';
-import { useRef } from 'react';
 import { ButtonsHome } from '../../Home/components/ButtonsHome';
 import { SignUpValidationService } from '../services/SignUpValidationService';
 import Button from 'react-bootstrap/Button';
@@ -15,7 +14,6 @@ export function FormSignUp() {
         pass,
         tel,
         age,
-        setAge,
         gender, 
         error,
         isRegistered,
@@ -24,15 +22,9 @@ export function FormSignUp() {
         handleTelChange,
         handlePassChange,
         titleAge,
-        setTitleAge,
+        formRef,
+        handleAgeChange,
     } = SignUpValidationService();
-
-    const formRef = useRef(null);
-
-    const handleAgeChange = (ageSelected) => {
-        setAge(ageSelected);
-        setTitleAge(ageSelected);
-    };
 
     return (
         <div className="form-sign-div">

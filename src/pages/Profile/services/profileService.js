@@ -14,7 +14,6 @@ export async function findByName(name) {
     }
 
     const data = await response.json();
-    console.log(data);
     return data;
 }
 
