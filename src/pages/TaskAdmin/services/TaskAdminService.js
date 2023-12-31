@@ -8,6 +8,7 @@ const TaskAdminService = () => {
     const [tasks, setTasks] = useState([]);
     const [error, setError] = useState(false);
     const [errorDescription, setErrorDescription] = useState("");
+    
 
     const handleDragStart = (e, description) => {
         e.dataTransfer.setData("text/plain", description);
@@ -46,9 +47,9 @@ const TaskAdminService = () => {
         };
         setTasks([...tasks, newTask]);
     }
-    const fetchTaskData = async () => {
+    const fetchTaskData = async (customer_id) => {
         try {
-            const data = await TaskLoadService(49);
+            const data = await TaskLoadService(customer_id);
             const taskList = data.task;
             setTasks(taskList);
         } catch (error){

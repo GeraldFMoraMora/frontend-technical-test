@@ -12,7 +12,7 @@ export async function TaskLoadService(user) {
         throw new Error('Error al extraer las tareas');
     }
     const data = await response.json();
-    
+
     if(data.error){
         throw new Error(data.message);
     }

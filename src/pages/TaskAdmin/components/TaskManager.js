@@ -1,11 +1,11 @@
 import React from "react";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import '../styles/TaskManager.css'
 import Form from "./Form";
 import Task from "./Task";
 import TaskAdminService from "../services/TaskAdminService";
 
-function TaskManager() {
+function TaskManager(props) {
 
     const {
         tasks,
@@ -18,8 +18,11 @@ function TaskManager() {
       } = TaskAdminService();
 
     useEffect( () => {
-        fetchTaskData();
-    },[]
+        
+        if (props.customer) {
+            fetchTaskData(props.customer.id);
+        }
+    },[props.customer]
     );
       
     return (
@@ -32,7 +35,7 @@ function TaskManager() {
                 <div 
                     className="task-todo-div"
                     onDragOver={(e) => handleDragOver(e)}
-                    onDrop={(e)=> handleDrop(e, "todo", 49)}
+                    onDrop={(e)=> handleDrop(e, "todo", props.customer.id)}
                 >
                     <h2 className="admin-task-titles">To Do</h2>
                     <div className="task-list-div">
@@ -53,7 +56,7 @@ function TaskManager() {
                 <div 
                     className="task-working-div"
                     onDragOver={(e)=> handleDragOver(e)}
-                    onDrop={(e)=> handleDrop(e,"working", 49)}
+                    onDrop={(e)=> handleDrop(e,"working", props.customer.id)}
                 >
                     <h2 className="admin-task-titles">Working</h2>
                     <div className="task-list-div">
@@ -74,7 +77,7 @@ function TaskManager() {
                 <div 
                     className="task-finish-div"
                     onDragOver={(e)=> handleDragOver(e)}
-                    onDrop={(e)=> handleDrop(e,"done", 49)}
+                    onDrop={(e)=> handleDrop(e,"done", props.customer.id)}
                 >
                     <h2 className="admin-task-titles">Done</h2>
                     <div className="task-list-div">

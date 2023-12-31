@@ -7,7 +7,8 @@ function TaskAdmin({customer}) {
     return (
         <div className="taskadmin-principal-div">
             <div className='component-div'>
-                <TaskManager/>
+                <TaskManager customer={customer}/>
+                
             </div>
         </div>
     );
