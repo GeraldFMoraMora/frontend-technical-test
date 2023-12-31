@@ -19,6 +19,7 @@ export function FormLogin() {
         handleSubmit,
         errorDescription,
         customer,
+        token,
     } = AuthService();
 
     const formRef = useRef(null);
@@ -68,7 +69,7 @@ export function FormLogin() {
                 </div>)}
                 {isLoggedIn === true && error === false && (
                 <div>
-                    <TaskAdmin customer={customer}/>
+                    <TaskAdmin customer={customer} token={token}/>
                 </div>)}
             </div>
             

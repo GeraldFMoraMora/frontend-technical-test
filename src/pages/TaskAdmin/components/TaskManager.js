@@ -15,12 +15,12 @@ function TaskManager(props) {
         handleDeleteTask,
         handleAddTask,
         fetchTaskData,
-      } = TaskAdminService();
+      } = TaskAdminService(props.token, props.customer);
 
     useEffect( () => {
         
         if (props.customer) {
-            fetchTaskData(props.customer.id);
+            fetchTaskData(props.customer.id, props.token);
         }
     },[props.customer]
     );
@@ -30,12 +30,12 @@ function TaskManager(props) {
             <div>
                 <h2>Tasks</h2>
             </div>
-            <Form onAddTask={ handleAddTask }/>
+            <Form onAddTask={ handleAddTask } customer={props.customer} token={props.token}/>
             <div className="admin-task-principal">
                 <div 
                     className="task-todo-div"
                     onDragOver={(e) => handleDragOver(e)}
-                    onDrop={(e)=> handleDrop(e, "todo", props.customer.id)}
+                    onDrop={(e)=> handleDrop(e, "todo", props.customer.id, props.token)}
                 >
                     <h2 className="admin-task-titles">To Do</h2>
                     <div className="task-list-div">
@@ -56,7 +56,7 @@ function TaskManager(props) {
                 <div 
                     className="task-working-div"
                     onDragOver={(e)=> handleDragOver(e)}
-                    onDrop={(e)=> handleDrop(e,"working", props.customer.id)}
+                    onDrop={(e)=> handleDrop(e,"working", props.customer.id, props.token)}
                 >
                     <h2 className="admin-task-titles">Working</h2>
                     <div className="task-list-div">
@@ -77,7 +77,7 @@ function TaskManager(props) {
                 <div 
                     className="task-finish-div"
                     onDragOver={(e)=> handleDragOver(e)}
-                    onDrop={(e)=> handleDrop(e,"done", props.customer.id)}
+                    onDrop={(e)=> handleDrop(e,"done", props.customer.id, props.token)}
                 >
                     <h2 className="admin-task-titles">Done</h2>
                     <div className="task-list-div">

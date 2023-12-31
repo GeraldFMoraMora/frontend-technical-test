@@ -4,7 +4,7 @@ import { TaskDeleteService } from '../services/TaskLoadService';
 import { TaskUpdateService } from "../services/TaskLoadService";
 import { TaskService } from '../services/TaskLoadService';
 
-const TaskAdminService = () => {
+const TaskAdminService = (token, customer) => {
     const [tasks, setTasks] = useState([]);
     const [error, setError] = useState(false);
     const [errorDescription, setErrorDescription] = useState("");
@@ -18,7 +18,7 @@ const TaskAdminService = () => {
         e.preventDefault();
     };
 
-    const handleDrop = (e, state, user) => {
+    const handleDrop = (e, state, user, token) => {
         e.preventDefault();
         const draggedText = e.dataTransfer.getData("text/plain");
 
@@ -26,7 +26,7 @@ const TaskAdminService = () => {
             task.description === draggedText ? { ...task, state } : task
         );
 
-        TaskUpdateService(e.dataTransfer.getData("text/plain"), state, "", true, user);
+        TaskUpdateService(e.dataTransfer.getData("text/plain"), state, "", true, user, token);
 
         setTasks(updatedTasks);
 
@@ -34,12 +34,12 @@ const TaskAdminService = () => {
 
     const handleDeleteTask = (id) => {
         const updatedTask = tasks.filter(task => task.id !== id);
-        TaskDeleteService(20, id);
+        TaskDeleteService(customer.id, id, token);
         setTasks(updatedTask);
     };
 
-    const handleAddTask = (newTaskTxt, user) => {
-        TaskAddService(newTaskTxt, "todo", "", true, user);
+    const handleAddTask = (newTaskTxt, user, token) => {
+        TaskAddService(newTaskTxt, "todo", "", true, user, token);
         const newTask = {
             id: tasks.length+1,
             description: newTaskTxt,
@@ -47,9 +47,9 @@ const TaskAdminService = () => {
         };
         setTasks([...tasks, newTask]);
     }
-    const fetchTaskData = async (customer_id) => {
+    const fetchTaskData = async (customer_id, token) => {
         try {
-            const data = await TaskLoadService(customer_id);
+            const data = await TaskLoadService(customer_id, token);
             const taskList = data.task;
             setTasks(taskList);
         } catch (error){

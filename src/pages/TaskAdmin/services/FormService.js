@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const FormService = (onAddTask) => {
+const FormService = (onAddTask, customer, token) => {
     const [input, setInput] = useState('');
 
     const handleChange = e => {
@@ -10,7 +10,7 @@ const FormService = (onAddTask) => {
     const handleSend = e => {
         e.preventDefault(); 
 
-        onAddTask(input, 20);
+        onAddTask(input, customer.id, token);
         
     }
     return {

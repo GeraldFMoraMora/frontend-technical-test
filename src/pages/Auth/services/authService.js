@@ -29,6 +29,7 @@ export const AuthService = () => {
     const [errorDescription, setErrorDescription] = useState(null);
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const [customer, setCustomer] = useState(null);
+    const [token, setToken] =useState("");
 
     useEffect(() => {
         console.log(customer);
@@ -47,6 +48,7 @@ export const AuthService = () => {
             const data = await login(user, pass);
             setIsLoggedIn(true);
             setCustomer(data.customer);
+            setToken(data.token);
         } catch (error) {
             console.error('Error de autenticacion: ', error.message);
             setIsLoggedIn(false);
@@ -67,6 +69,7 @@ export const AuthService = () => {
         errorDescription,
         customer,
         setCustomer,
+        token,
     };
 
 };

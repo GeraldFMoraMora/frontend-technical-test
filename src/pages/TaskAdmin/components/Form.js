@@ -2,12 +2,12 @@ import React, { useState } from "react";
 import "../styles/Form.css";
 import FormService from "../services/FormService";
 
-function Form( { onAddTask } ){ 
+function Form( props ){ 
 
     const {
         handleChange,
         handleSend,
-    } = FormService(onAddTask);
+    } = FormService(props.onAddTask, props.customer, props.token);
     
     return (
         <div className="form-input-div">
