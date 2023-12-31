@@ -1,9 +1,7 @@
 import '../styles/FormProfile.css';
 import { FormProfileService } from '../services/profileService';
 import { useEffect } from 'react';
-import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
-import TaskAdmin from "../../TaskAdmin/TaskAdmin";
 import profileLogo from '../../../images/profile_logo.png';
 
 export function FormProfile( props ) {

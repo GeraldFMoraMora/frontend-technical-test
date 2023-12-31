@@ -1,5 +1,5 @@
 import React from "react";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import '../styles/TaskManager.css'
 import Form from "./Form";
 import Task from "./Task";

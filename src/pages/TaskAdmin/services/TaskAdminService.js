@@ -2,7 +2,6 @@ import { useState } from "react";
 import { TaskAddService, TaskLoadService } from "../services/TaskLoadService";
 import { TaskDeleteService } from '../services/TaskLoadService';
 import { TaskUpdateService } from "../services/TaskLoadService";
-import { TaskService } from '../services/TaskLoadService';
 
 const TaskAdminService = (token, customer) => {
     const [tasks, setTasks] = useState([]);

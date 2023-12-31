@@ -1,5 +1,4 @@
 import React from "react";
-import appLogo from '../../images/tasklogo.jpg';
 import TaskManager from './components/TaskManager';
 import './styles/TaskAdmin.css';
 import Tab from 'react-bootstrap/Tab';

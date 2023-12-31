@@ -1,4 +1,3 @@
-import appLogo from '../../images/tasklogo.jpg';
 import { FormProfile } from './components/FormProfile';
 import './styles/Profile.css';
 

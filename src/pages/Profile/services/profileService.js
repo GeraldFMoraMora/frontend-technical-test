@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 const API_URL = "http://localhost:8080";
 
 

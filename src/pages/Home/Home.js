@@ -1,7 +1,6 @@
 import React from "react";
 import { ButtonsHome } from './components/ButtonsHome';
 import './styles/Home.css'
-import { Outlet } from "react-router-dom";
 
 function Home(){
     return (

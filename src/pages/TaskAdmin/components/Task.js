@@ -1,5 +1,5 @@
 import { AiOutlineCloseCircle, AiFillFileImage } from "react-icons/ai";
-import React, { useState, useRef, useEffect } from "react";
+import React, { useEffect } from "react";
 import "../styles/Task.css";
 import { TaskService } from "../services/TaskService";
 import AvatarEditor from "react-avatar-editor";

@@ -1,6 +1,4 @@
 import '../styles/ButtonsHome.css'
-import { FormSignUp } from '../../SignUp/components/FormSignUp';
-import { FormLogin } from '../../Auth/components/FormLogin';
 import {Auth} from '../../Auth/Auth';
 import SignUp from '../../SignUp/SignUp';
 import { useState } from 'react';

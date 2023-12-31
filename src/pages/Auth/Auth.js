@@ -1,9 +1,5 @@
 import React from "react";
-import appLogo from '../../images/tasklogo.jpg';
 import { FormLogin } from './components/FormLogin';
-import Home from "../Home/Home";
-import Profile from "../Profile/Profile";
-import { Outlet, Route, Routes } from "react-router-dom";
 
 
 export function Auth() {
@@ -12,9 +8,6 @@ export function Auth() {
             <div className='component-div'>
                 <FormLogin />
             </div>
-            
-
-
         </div>
     );
 }
