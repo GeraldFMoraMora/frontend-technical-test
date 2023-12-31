@@ -1,10 +1,10 @@
 import { AiOutlineCloseCircle, AiFillFileImage } from "react-icons/ai";
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import "../styles/Task.css";
 import { TaskService } from "../services/TaskService";
 import AvatarEditor from "react-avatar-editor";
 
-function Task({ id, text, state, onDragStart, onDeleteTask, onImageAdd }) {
+function Task( props ) {
     const {
         handleDragStart,
         handleDelete,
@@ -12,14 +12,33 @@ function Task({ id, text, state, onDragStart, onDeleteTask, onImageAdd }) {
         handleSaveImage,
         image,
         editorRef,
-    } = TaskService(id, text, state, onDragStart, onDeleteTask, onImageAdd);
+        setImage,
+    } = TaskService(props.id, props.text, props.state, props.onDragStart, props.onDeleteTask, props.onImageAdd);
+
+    useEffect(() => {
+        console.log(props.image64)
+
+        if (props.image64) {
+          const byteCharacters = atob(props.image64.split(',')[1]);
+          const byteNumbers = new Array(byteCharacters.length);
+          for (let i = 0; i < byteCharacters.length; i++) {
+            byteNumbers[i] = byteCharacters.charCodeAt(i);
+          }
+          const byteArray = new Uint8Array(byteNumbers);
+          const blob = new Blob([byteArray], { type: 'image/png' });
+    
+          const blobUrl = URL.createObjectURL(blob);
+          
+          setImage(blobUrl);
+        }
+      }, [props.image64]);
 
     return(
         <div className="individual-task-div" draggable onDragStart={handleDragStart}>
             <div 
                 className="task-text"
             >
-                { text }
+                { props.text }
             </div>
             { image && (
                 <AvatarEditor
@@ -36,12 +55,12 @@ function Task({ id, text, state, onDragStart, onDeleteTask, onImageAdd }) {
             <div 
                 className="task-img-div-icon"
             >
-                <label htmlFor={`fileInput-${id}`} className="img-icon-label">
+                <label htmlFor={`fileInput-${props.id}`} className="img-icon-label">
                     <AiFillFileImage className="img-icon" />
                 </label>
                 <input
                     type="file"
-                    id={`fileInput-${id}`}
+                    id={`fileInput-${props.id}`}
                     accept="image/*"
                     style={{ display: 'none' }}
                     onChange={handleImageUpload}

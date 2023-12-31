@@ -50,7 +50,7 @@ function TaskManager(props) {
                             id={task.id}
                             text={task.description} 
                             state = {task.state}
-                            image = {task.image_url}
+                            image64 = {task.image_url}
                             onDragStart={handleDragStart}
                             onDeleteTask = { handleDeleteTask }
                             onImageAdd={ handleImageAdd }
@@ -74,7 +74,7 @@ function TaskManager(props) {
                             id={task.id}
                             text={task.description} 
                             state = {task.state}
-                            image = {task.image_url}
+                            image64 = {task.image_url}
                             onDragStart={handleDragStart}
                             onDeleteTask = { handleDeleteTask }
                             onImageAdd={ handleImageAdd }
@@ -98,7 +98,7 @@ function TaskManager(props) {
                             id={task.id}
                             text={task.description} 
                             state = {task.state}
-                            image = {task.image_url}
+                            image64 = {task.image_url}
                             onDragStart={handleDragStart}
                             onDeleteTask = { handleDeleteTask }
                             onImageAdd={ handleImageAdd }

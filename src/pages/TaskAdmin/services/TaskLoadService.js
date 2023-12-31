@@ -16,6 +16,7 @@ export async function TaskLoadService(user, token) {
     if(data.error){
         throw new Error(data.message);
     }
+    console.log(data);
 
     return data;
 };
