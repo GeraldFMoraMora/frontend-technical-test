@@ -18,7 +18,7 @@ export async function findByName(name) {
     return data;
 }
 
-export const FormProfileService = () => {
+export const FormProfileService = (customer) => {
     const [userData, setUserData] = useState({
         name : "",
         password : "",
@@ -28,7 +28,7 @@ export const FormProfileService = () => {
     });
     const fetchUserData = async () => {
         try {
-            const data = await findByName('Misael');
+            const data = await findByName(customer.name);
             setUserData(data);
         } catch (error){
             console.error('Error al obtener los datos del usuario: ', error.message);

@@ -34,15 +34,7 @@ export default function App() {
       </div>
       <div className='task-list-principal'>
         
-      <Routes>
-          <Route path="/" element={<Layout />}>
-          <Route path="auth" element={<Auth />} />
-          <Route path="home" element={<Home />} />
-          <Route path="profile" element={<Profile />} />
-          <Route path="signup" element={<SignUp />} />
-          <Route path="taskadmin" element={<TaskAdmin />} />
-        </Route>
-    </Routes>
+      <Home/>
         
       </div>
 

@@ -14,4 +14,11 @@
     justify-content: center;
     align-items: center;
   }
+
+  .custom-tabs {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+  }
   

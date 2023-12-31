@@ -6,12 +6,12 @@ import Card from 'react-bootstrap/Card';
 import TaskAdmin from "../../TaskAdmin/TaskAdmin";
 import profileLogo from '../../../images/profile_logo.png';
 
-export function FormProfile() {
+export function FormProfile( props ) {
 
     const {
         userData,
         fetchUserData,
-    } = FormProfileService();
+    } = FormProfileService(props.customer, props.token);
 
     useEffect( () => {
         fetchUserData();

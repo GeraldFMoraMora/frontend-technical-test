@@ -3,11 +3,11 @@ import { FormProfile } from './components/FormProfile';
 import './styles/Profile.css';
 
 
-function Profile() {
+function Profile( props ) {
     return (
         <div className="auth-principal-div">
             <div className='component-div'>
-                <FormProfile/>
+                <FormProfile customer={props.customer} token={ props.token }/>
             </div>
         </div>
     );
