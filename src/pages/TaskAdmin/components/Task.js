@@ -1,37 +1,18 @@
 import { AiOutlineCloseCircle, AiFillFileImage } from "react-icons/ai";
 import React, { useState, useRef } from "react";
 import "../styles/Task.css";
-import TaskService from "../services/TaskService";
+import { TaskService } from "../services/TaskService";
 import AvatarEditor from "react-avatar-editor";
 
-function Task({ id, text, onDragStart, onDeleteTask }) {
+function Task({ id, text, state, onDragStart, onDeleteTask, onImageAdd }) {
     const {
         handleDragStart,
         handleDelete,
-    } = TaskService(id, text, onDragStart, onDeleteTask);
-
-    const [image, setImage] = useState(null);
-    const editorRef = useRef();
-
-    const handleImageUpload = (e) => {
-        const file = e.target.files[0];
-
-        if(file) {
-            const reader = new FileReader();
-            reader.onload = () => {
-                setImage(reader.result);
-            };
-            reader.readAsDataURL(file);
-        }
-    };
-
-    const handleSaveImage = () => {
-        if(editorRef.current){
-            const canvas = editorRef.current.getImageScaledToCanvas();
-            const base64 = canvas.toDataURL('image/jpeg'); 
-            console.log(base64);
-        }
-    };
+        handleImageUpload,
+        handleSaveImage,
+        image,
+        editorRef,
+    } = TaskService(id, text, state, onDragStart, onDeleteTask, onImageAdd);
 
     return(
         <div className="individual-task-div" draggable onDragStart={handleDragStart}>

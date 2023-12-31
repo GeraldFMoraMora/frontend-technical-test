@@ -15,7 +15,10 @@ function TaskManager(props) {
         handleDeleteTask,
         handleAddTask,
         fetchTaskData,
+        handleImageAdd,
       } = TaskAdminService(props.token, props.customer);
+
+      
 
     useEffect( () => {
         
@@ -46,8 +49,11 @@ function TaskManager(props) {
                             key={task.id} 
                             id={task.id}
                             text={task.description} 
+                            state = {task.state}
+                            image = {task.image_url}
                             onDragStart={handleDragStart}
                             onDeleteTask = { handleDeleteTask }
+                            onImageAdd={ handleImageAdd }
                         />
                     ))}
 
@@ -67,8 +73,11 @@ function TaskManager(props) {
                             key={task.id} 
                             id={task.id}
                             text={task.description} 
+                            state = {task.state}
+                            image = {task.image_url}
                             onDragStart={handleDragStart}
                             onDeleteTask = { handleDeleteTask }
+                            onImageAdd={ handleImageAdd }
                         />
                     ))}
 
@@ -88,8 +97,11 @@ function TaskManager(props) {
                             key={task.id} 
                             id={task.id}
                             text={task.description} 
+                            state = {task.state}
+                            image = {task.image_url}
                             onDragStart={handleDragStart}
                             onDeleteTask = { handleDeleteTask }
+                            onImageAdd={ handleImageAdd }
                         />
                     ))}
 

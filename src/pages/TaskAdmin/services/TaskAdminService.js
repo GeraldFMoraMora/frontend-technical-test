@@ -58,6 +58,9 @@ const TaskAdminService = (token, customer) => {
             setErrorDescription(error.message);
         }
     };
+    const handleImageAdd = (description, state, image_url) => {
+        TaskUpdateService(description, state, image_url, true, customer.id, token);
+    };
 
     return { 
         tasks,
@@ -70,6 +73,7 @@ const TaskAdminService = (token, customer) => {
         fetchTaskData,
         errorDescription,
         error,
+        handleImageAdd,
     };
 
 }
