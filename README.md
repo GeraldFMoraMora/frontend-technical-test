@@ -36,6 +36,8 @@ Muestra una serie de elementos que permiten gestionar las tareas de usuario, est
 - **Contenedor de tarea**: Este contenedor muestra la descripción de la tarea (nombre), un pequeño botón para agregar una imagen vinculada a esta tarea, un pequeño botón para eliminar la tarea y de existir una imagen ya vinculada a esa  tarea, esa se mostrará en un pequeño recuadro.
 > **NOTA**: Si el usario desea reemplazar la imagen, solo debe de dar click a la opción de agregar imagen, para que la nueva reemplace a la imagen anterior.
 
+- **Botón de agregar imagen**: Este botón se muestra en el contenedor de tarea todo el tiempo, se encarga de habilitar la carga de una imagen, la misma es recortada en una proporción 1:1 (Cuadrada) y posteriormente se muestra junto a este botón. Además, este botón también permite la recarga de una nueva imagen, la cúal, sustituirá a la imagen actual en caso de existir.
+
 #### Tab de perfil: 
 Muestra de manera muy sencilla la información del usuario actual. 
 > **NOTA importante**: Para ver la información de otro usuario, este se debe logear con el usuario en cuestión, para ello debe refrescar la aplicación ya sea con **f5** o en la opción de refrescar del navegador para volver a la pantalla de bienvenida y ingresar a la opción de login nuevamente.
