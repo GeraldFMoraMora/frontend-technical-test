@@ -30,6 +30,11 @@ export async function signUpConnectService(name,
     }
 
     const data = await response.json();
+
+    if(data.error){
+        throw new Error(data.message);
+    }
+    console.log(data);
     
     return data;
 }

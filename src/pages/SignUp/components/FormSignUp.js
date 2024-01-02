@@ -24,6 +24,7 @@ export function FormSignUp() {
         titleAge,
         formRef,
         handleAgeChange,
+        errorDescription,
     } = SignUpValidationService();
 
     return (
@@ -110,7 +111,7 @@ export function FormSignUp() {
                     <Button type='submit' className="btn-register">Register now</Button>{' '}
                     {error && 
                         <Alert className="error-message" key={'warning'} variant={'warning'}>
-                            {error}
+                            SignUp failed: {errorDescription}
                         </Alert>
                     }
                 </form>
